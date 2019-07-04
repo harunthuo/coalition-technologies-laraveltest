@@ -81,17 +81,19 @@
                 <tbody>                        
                     @php
                     $jsonData = json_decode( $data, true );
-                    @endphp    
-                    @foreach ($jsonData as $item)
-                      <tr>
-                        <td>{{ $item['product_name'] }}</td>
-                        <td>{{ $item['quantity'] }}</td>
-                        <td>{{ $item['price'] }}</td>
-                        <td>{{ $item['created_at'] }}</td>
-                        <td>{{ $item['quantity']*$item['price'] }}</td>
-                        <td><a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a></td>
-                      </tr>
-                    @endforeach
+                    @endphp 
+                    @if ( count($jsonData) )
+                      @foreach ($jsonData as $item)
+                        <tr>
+                          <td>{{ $item['product_name'] }}</td>
+                          <td>{{ $item['quantity'] }}</td>
+                          <td>{{ $item['price'] }}</td>
+                          <td>{{ $item['created_at'] }}</td>
+                          <td>{{ $item['quantity']*$item['price'] }}</td>
+                          <td><a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a></td>
+                        </tr>
+                      @endforeach                        
+                    @endif   
                 </tbody>
               </table>
             </div>
